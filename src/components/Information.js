@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { useSelector } from "react-redux";
 import backgroundPattern from "../images/concrete.png";
 import backgroundImg from "../images/background/pattern.svg";
+import downbutton from "../images/030-spaceship.svg";
 import astronautImg from "../images/004-astronaut.svg";
 import img1 from "../images/003-Asteroid.svg";
 import img2 from "../images/005-astronomy.svg";
@@ -47,25 +48,11 @@ export const Information = () => {
     }
   };
 
-  const textStyling = (array) => {
-    let styledText = "";
-    array.forEach((word, index) => {
-      if (array.length - index === 1) {
-        styledText += `${word.name}`;
-      } else if (array.length - index > 2) {
-        styledText += `${word.name}, `;
-      } else {
-        styledText += `${word.name} & `;
-      }
-    });
-    return styledText;
-  };
-
   return (
     <>
       <Wrapper>
         <Title>{titleText(allAstronauts)}</Title>
-        <Text>{textStyling(allAstronauts)} </Text>
+
         {allAstronauts.map((astronaut, index) => (
           <>
             <ImgContainer
@@ -126,6 +113,9 @@ export const Information = () => {
             e={getRandomInt(10, 90, "%")}
           />
         ))}
+        <A href="#more-information">
+          <Img src={downbutton} alt="rocket" />
+        </A>
       </Wrapper>
     </>
   );
@@ -173,7 +163,6 @@ const Wrapper = styled.section`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   overflow: hidden;
   box-sizing: border-box;
 
@@ -192,6 +181,8 @@ const Wrapper = styled.section`
   background-repeat: repeat;
   background-position: center;
   box-shadow: inset 0px -30px 60px 60px #000000;
+
+  overflow: hidden;
 `;
 
 const Title = styled.h1`
@@ -205,24 +196,11 @@ const Title = styled.h1`
   font-family: "Righteous", cursive;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
     5px 5px 0px #d6cfe1;
+  padding-top: 40px;
 
   @media (min-width: 668px) {
     font-size: 6vw;
   }
-`;
-
-const Text = styled.h2`
-  position: relative;
-  z-index: 25;
-  color: #e0d6f0;
-  margin: 0 auto;
-  font-size: 4vw;
-  font-weight: bolder;
-  font-family: "Righteous", cursive;
-  letter-spacing: 5px;
-  text-align: center;
-  text-shadow: -2px -2px 0px #3b2563, 2px 2px 0px #4a3969;
-  width: 70%;
 `;
 
 const ImgContainer = styled.img`
@@ -246,18 +224,31 @@ const ImgContainer = styled.img`
   }
 `;
 
-// const ImgContainerDesktop = styled.img`
-//   margin: 20px;
-//   width: ${(props) => props.width};
-//   position: absolute;
-//   animation: ${(props) => rotating(props.y)} 45s linear infinite,
-//     ${(props) => movement(props.a, props.b, props.c, props.d, props.e)} 355s
-//       linear infinite;
-//   top: ${(props) => props.positionTop};
-//   left: ${(props) => props.positionLeft};
-//   z-index: ${(props) => props.zIndex};
+const Img = styled.img`
+  width: 80px;
+`;
 
-//   @media (max-width: 1024px) {
-//     display: none;
-//   }
-// `;
+const floating = keyframes`
+0% {
+  bottom: 0;
+}
+
+50% {
+  bottom: 15px;
+}
+
+100% {
+  bottom: 0;
+}
+
+`;
+
+const A = styled.a`
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: rotate(180deg);
+
+  animation: ${floating} 2s ease-in-out infinite;
+`;
