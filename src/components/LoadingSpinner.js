@@ -15,5 +15,5 @@ const rotating = keyframes`
 
 const Loader = styled.img`
   width: 100px;
-  animation: ${rotating} 1.5s linear infinite;
+  animation: ${rotating} 2.5s linear infinite;
 `;
