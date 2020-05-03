@@ -16,9 +16,6 @@ export const astronauts = createSlice({
 export const onStart = () => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    // fetch(`https://www.howmanypeopleareinspacerightnow.com/peopleinspace.json`)
-    //   .then((data) => data.json())
-    //   .then((json) => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url =
       "https://www.howmanypeopleareinspacerightnow.com/peopleinspace.json"; // site that doesn’t send Access-Control-*
@@ -33,10 +30,3 @@ export const onStart = () => {
       );
   };
 };
-
-// const proxyurl = "https://cors-anywhere.herokuapp.com/";
-// const url =
-//   "https://www.howmanypeopleareinspacerightnow.com/peopleinspace.json"; // site that doesn’t send Access-Control-*
-// fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
-//   .then((response) => response.text())
-//   .then((contents) => console.log(contents))

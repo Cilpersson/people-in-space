@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { onStart } from "../reducers/astronauts";
 import { Information } from "./Information";
+import { MoreInformation } from "./MoreInformation";
 import { LoadingSpinner } from "./LoadingSpinner";
 import styled, { keyframes } from "styled-components";
 import backgroundImg from "../images/background/pattern.svg";
@@ -23,6 +24,7 @@ export const FetchAstronauts = () => {
         <Button onClick={() => handleOnClick()}>get astro facts</Button>
       )}
       {!isLoading && clicked && <Information />}
+      {!isLoading && clicked && <MoreInformation />}
       {isLoading && <LoadingSpinner />}
     </Main>
   );
@@ -51,19 +53,20 @@ const Button = styled.button`
   margin: 0 auto;
   font-size: 12vw;
   font-weight: bolder;
-  font-family: "Modak", monospace;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
-    5px 5px 0px #d6cfe1, -15px -10px 15px #b39ddb;
+    5px 5px 0px #d6cfe1;
   background: none;
   border: none;
   animation: ${breathing} 2s ease-in-out infinite;
   cursor: pointer;
+  font-family: "Righteous", cursive;
 `;
 
 const Main = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   background-color: #020646;
   background-image: radial-gradient(
@@ -80,5 +83,7 @@ const Main = styled.section`
   background-repeat: repeat;
   background-position: center;
 
-  height: 100vh;
+  box-shadow: inset 0px -30px 60px 60px #000000;
+
+  min-height: 100vh;
 `;

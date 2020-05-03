@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { useSelector } from "react-redux";
+import backgroundPattern from "../images/concrete.png";
+import backgroundImg from "../images/background/pattern.svg";
 import astronautImg from "../images/004-astronaut.svg";
 import img1 from "../images/003-Asteroid.svg";
 import img2 from "../images/005-astronomy.svg";
@@ -60,19 +62,40 @@ export const Information = () => {
   };
 
   return (
-    <Wrapper>
-      <Title>{titleText(allAstronauts)}</Title>
-      <Text>{textStyling(allAstronauts)}</Text>
-      {allAstronauts.map((astronaut, index) => (
-        <>
+    <>
+      <Wrapper>
+        <Title>{titleText(allAstronauts)}</Title>
+        <Text>{textStyling(allAstronauts)} </Text>
+        {allAstronauts.map((astronaut, index) => (
+          <>
+            <ImgContainer
+              width="130px"
+              zIndex="20"
+              opacity="1"
+              src={astronautImg}
+              display="block"
+              alt="Cartoon astronaut"
+              mobileWidth="90px"
+              key={getRandomInt(3, 1000000, "!")}
+              positionTop={getRandomInt(10, 80, "%")}
+              positionLeft={getRandomInt(10, 80, "%")}
+              y={getRandomDeg(0, 10)}
+              a={getRandomInt(10, 90, "%")}
+              b={getRandomInt(10, 90, "%")}
+              c={getRandomInt(10, 90, "%")}
+              d={getRandomInt(10, 90, "%")}
+              e={getRandomInt(10, 90, "%")}
+            />
+          </>
+        ))}
+        {images.map((img) => (
           <ImgContainer
-            width="130px"
-            zIndex="20"
-            opacity="1"
-            src={astronautImg}
+            width="45px"
+            zIndex="5"
+            opacity="0.7"
+            src={img}
             display="block"
-            alt="Cartoon astronaut"
-            mobileWidth="90px"
+            alt="Space cartoon"
             key={getRandomInt(3, 1000000, "!")}
             positionTop={getRandomInt(10, 80, "%")}
             positionLeft={getRandomInt(10, 80, "%")}
@@ -83,47 +106,28 @@ export const Information = () => {
             d={getRandomInt(10, 90, "%")}
             e={getRandomInt(10, 90, "%")}
           />
-        </>
-      ))}
-      {images.map((img) => (
-        <ImgContainer
-          width="45px"
-          zIndex="5"
-          opacity="0.7"
-          src={img}
-          display="block"
-          alt="Space cartoon"
-          key={getRandomInt(3, 1000000, "!")}
-          positionTop={getRandomInt(10, 80, "%")}
-          positionLeft={getRandomInt(10, 80, "%")}
-          y={getRandomDeg(0, 10)}
-          a={getRandomInt(10, 90, "%")}
-          b={getRandomInt(10, 90, "%")}
-          c={getRandomInt(10, 90, "%")}
-          d={getRandomInt(10, 90, "%")}
-          e={getRandomInt(10, 90, "%")}
-        />
-      ))}
-      {images.map((img, index) => (
-        <ImgContainer
-          width="45px"
-          zIndex="5"
-          opacity="0.7"
-          src={img}
-          display="none"
-          alt="Space cartoon"
-          key={getRandomInt(3, 1000000, "")}
-          positionTop={getRandomInt(10, 80, "%")}
-          positionLeft={getRandomInt(10, 80, "%")}
-          y={getRandomDeg(0, 10)}
-          a={getRandomInt(10, 90, "%")}
-          b={getRandomInt(10, 90, "%")}
-          c={getRandomInt(10, 90, "%")}
-          d={getRandomInt(10, 90, "%")}
-          e={getRandomInt(10, 90, "%")}
-        />
-      ))}
-    </Wrapper>
+        ))}
+        {images.map((img) => (
+          <ImgContainer
+            width="45px"
+            zIndex="5"
+            opacity="0.7"
+            src={img}
+            display="none"
+            alt="Space cartoon"
+            key={getRandomInt(3, 1000000, "")}
+            positionTop={getRandomInt(10, 80, "%")}
+            positionLeft={getRandomInt(10, 80, "%")}
+            y={getRandomDeg(0, 10)}
+            a={getRandomInt(10, 90, "%")}
+            b={getRandomInt(10, 90, "%")}
+            c={getRandomInt(10, 90, "%")}
+            d={getRandomInt(10, 90, "%")}
+            e={getRandomInt(10, 90, "%")}
+          />
+        ))}
+      </Wrapper>
+    </>
   );
 };
 
@@ -165,12 +169,29 @@ const movement = (a, b, c, d, e) => keyframes`
 
 const Wrapper = styled.section`
   padding: 30px;
-  width: 80vw;
-  height: 70vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   overflow: hidden;
+  box-sizing: border-box;
+
+  background-color: #020646;
+  background-image: radial-gradient(
+      #00000099,
+      #00000099,
+      #00000030,
+      #00000099,
+      #00000099,
+      #00000030,
+      #00000099,
+      #00000099
+    ),
+    url(${backgroundPattern}), url(${backgroundImg});
+  background-repeat: repeat;
+  background-position: center;
+  box-shadow: inset 0px -30px 60px 60px #000000;
 `;
 
 const Title = styled.h1`
@@ -181,9 +202,9 @@ const Title = styled.h1`
   margin: 0 auto;
   font-size: 9vw;
   font-weight: bolder;
-  font-family: "Modak", monospace;
+  font-family: "Righteous", cursive;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
-    5px 5px 0px #d6cfe1, -15px -10px 15px #b39ddb;
+    5px 5px 0px #d6cfe1;
 
   @media (min-width: 668px) {
     font-size: 6vw;
@@ -197,7 +218,8 @@ const Text = styled.h2`
   margin: 0 auto;
   font-size: 4vw;
   font-weight: bolder;
-  font-family: "Modak", monospace;
+  font-family: "Righteous", cursive;
+  letter-spacing: 5px;
   text-align: center;
   text-shadow: -2px -2px 0px #3b2563, 2px 2px 0px #4a3969;
   width: 70%;
