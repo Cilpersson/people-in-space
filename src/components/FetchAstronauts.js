@@ -51,7 +51,7 @@ const Button = styled.button`
   margin: 0 auto;
   font-size: 12vw;
   font-weight: bolder;
-  font-family: "Modak", cursive;
+  font-family: "Modak", monospace;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
     5px 5px 0px #d6cfe1, -15px -10px 15px #b39ddb;
   background: none;
