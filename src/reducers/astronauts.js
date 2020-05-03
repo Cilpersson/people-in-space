@@ -16,7 +16,7 @@ export const astronauts = createSlice({
 export const onStart = () => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    fetch(`http://api.open-notify.org/astros.json`)
+    fetch(`https://www.howmanypeopleareinspacerightnow.com/peopleinspace.json`)
       .then((data) => data.json())
       .then((json) => {
         dispatch(astronauts.actions.setAstronauts(json));

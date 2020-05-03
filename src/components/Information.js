@@ -58,7 +58,6 @@ export const Information = () => {
     });
     return styledText;
   };
-  console.log(allAstronauts);
 
   return (
     <Wrapper>
