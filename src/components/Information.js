@@ -171,6 +171,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  overflow: hidden;
 `;
 
 const Title = styled.h1`
