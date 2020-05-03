@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onStart } from "../reducers/astronauts";
 import { Information } from "./Information";
 import { LoadingSpinner } from "./LoadingSpinner";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import backgroundImg from "../images/background/pattern.svg";
 import backgroundPattern from "../images/concrete.png";
 
@@ -28,10 +28,35 @@ export const FetchAstronauts = () => {
   );
 };
 
+const breathing = keyframes`
+0% {
+  transform: scale(1);
+}
+
+50% {
+  transform: scale(0.9);
+}
+
+100% {
+  transform: scale(1);
+}
+
+`;
+
 const Button = styled.button`
-  font-size: 50px;
-  color: #fff;
-  background: #000;
+  position: relative;
+  z-index: 20;
+  color: #ffffff95;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 12vw;
+  font-weight: bolder;
+  font-family: "Modak", cursive;
+  text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
+    5px 5px 0px #d6cfe1, -15px -10px 15px #b39ddb;
+  background: none;
+  border: none;
+  animation: ${breathing} 2s ease-in-out infinite;
 `;
 
 const Main = styled.section`

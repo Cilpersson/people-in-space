@@ -37,11 +37,11 @@ export const Information = () => {
   const titleText = (allAstronauts) => {
     const nbrOfAstronauts = allAstronauts.length;
     if (nbrOfAstronauts === 0) {
-      return "There are no earthlings in space right now.";
+      return "There are no earthlings in space right now.".toUpperCase();
     } else if (nbrOfAstronauts === 1) {
-      return `There is ${nbrOfAstronauts} astronaut in space right now`;
+      return `There is ${nbrOfAstronauts} astronaut in space right now`.toUpperCase();
     } else {
-      return `There are ${nbrOfAstronauts} astronauts in space right now`;
+      return `There are ${nbrOfAstronauts} astronauts in space right now`.toUpperCase();
     }
   };
 
@@ -57,7 +57,7 @@ export const Information = () => {
         <>
           <ImgContainer
             width="130px"
-            zIndex="18"
+            zIndex="20"
             opacity="1"
             src={astronautImg}
             display="block"
@@ -163,20 +163,19 @@ const Wrapper = styled.section`
 const Title = styled.h1`
   position: relative;
   z-index: 20;
-  width: 60%;
-  color: #fff;
+  color: #ffffff95;
   text-align: center;
   margin: 0 auto;
-  font-size: 75px;
+  font-size: 6vw;
   font-weight: bolder;
-  font-family: monospace;
+  font-family: "Modak", cursive;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
     5px 5px 0px #d6cfe1, -15px -10px 15px #b39ddb;
 `;
 
 const Text = styled.li`
   position: relative;
-  z-index: 15;
+  z-index: 25;
   color: #fff;
   margin: 0 auto;
   font-size: 30px;
@@ -186,9 +185,10 @@ const Text = styled.li`
 
 const Ul = styled.ul`
   position: relative;
-  z-index: 15;
+  z-index: 25;
   margin: 0 auto;
   height: fit-content;
+  list-style-type: none;
 `;
 
 const ImgContainer = styled.img`
