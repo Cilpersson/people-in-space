@@ -57,6 +57,7 @@ const Button = styled.button`
   background: none;
   border: none;
   animation: ${breathing} 2s ease-in-out infinite;
+  cursor: pointer;
 `;
 
 const Main = styled.section`

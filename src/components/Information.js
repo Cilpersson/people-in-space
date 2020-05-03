@@ -39,20 +39,31 @@ export const Information = () => {
     if (nbrOfAstronauts === 0) {
       return "There are no earthlings in space right now.".toUpperCase();
     } else if (nbrOfAstronauts === 1) {
-      return `There is ${nbrOfAstronauts} astronaut in space right now`.toUpperCase();
+      return `There is ${nbrOfAstronauts} astronaut in space right now!`.toUpperCase();
     } else {
-      return `There are ${nbrOfAstronauts} astronauts in space right now`.toUpperCase();
+      return `There are ${nbrOfAstronauts} astronauts in space right now!`.toUpperCase();
     }
   };
+
+  const textStyling = (array) => {
+    let styledText = "";
+    array.forEach((word, index) => {
+      if (array.length - index === 1) {
+        styledText += `${word.name}`;
+      } else if (array.length - index > 2) {
+        styledText += `${word.name}, `;
+      } else {
+        styledText += `${word.name} & `;
+      }
+    });
+    return styledText;
+  };
+  console.log(allAstronauts);
 
   return (
     <Wrapper>
       <Title>{titleText(allAstronauts)}</Title>
-      <Ul>
-        {allAstronauts.map((astronaut) => (
-          <Text> {astronaut.name} </Text>
-        ))}
-      </Ul>
+      <Text>{textStyling(allAstronauts)}</Text>
       {allAstronauts.map((astronaut, index) => (
         <>
           <ImgContainer
@@ -62,6 +73,7 @@ export const Information = () => {
             src={astronautImg}
             display="block"
             alt="Cartoon astronaut"
+            mobileWidth="90px"
             key={getRandomInt(3, 1000000, "!")}
             positionTop={getRandomInt(10, 80, "%")}
             positionLeft={getRandomInt(10, 80, "%")}
@@ -158,6 +170,7 @@ const Wrapper = styled.section`
   height: 70vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 `;
 
 const Title = styled.h1`
@@ -166,29 +179,28 @@ const Title = styled.h1`
   color: #ffffff95;
   text-align: center;
   margin: 0 auto;
-  font-size: 6vw;
+  font-size: 9vw;
   font-weight: bolder;
   font-family: "Modak", cursive;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
     5px 5px 0px #d6cfe1, -15px -10px 15px #b39ddb;
+
+  @media (min-width: 668px) {
+    font-size: 6vw;
+  }
 `;
 
-const Text = styled.li`
+const Text = styled.h2`
   position: relative;
   z-index: 25;
-  color: #fff;
+  color: #e0d6f0;
   margin: 0 auto;
-  font-size: 30px;
+  font-size: 4vw;
   font-weight: bolder;
-  font-family: monospace;
-`;
-
-const Ul = styled.ul`
-  position: relative;
-  z-index: 25;
-  margin: 0 auto;
-  height: fit-content;
-  list-style-type: none;
+  font-family: "Modak", cursive;
+  text-align: center;
+  text-shadow: -2px -2px 0px #3b2563, 2px 2px 0px #4a3969;
+  width: 70%;
 `;
 
 const ImgContainer = styled.img`
@@ -205,6 +217,10 @@ const ImgContainer = styled.img`
 
   @media (max-width: 1024px) {
     display: ${(props) => props.display};
+  }
+
+  @media (max-width: 668px) {
+    width: ${(props) => props.mobileWidth};
   }
 `;
 
