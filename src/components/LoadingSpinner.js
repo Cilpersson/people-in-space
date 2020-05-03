@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import spinner from "../images/003-Asteroid.svg";
+import spinner from "../images/034-uranus.svg";
 
 export const LoadingSpinner = () => {
   return <Loader src={spinner} />;
