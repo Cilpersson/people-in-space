@@ -181,8 +181,6 @@ const Wrapper = styled.section`
   background-repeat: repeat;
   background-position: center;
   box-shadow: inset 0px -30px 60px 60px #000000;
-
-  overflow: hidden;
 `;
 
 const Title = styled.h1`
