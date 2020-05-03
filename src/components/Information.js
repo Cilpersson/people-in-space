@@ -181,7 +181,7 @@ const Title = styled.h1`
   margin: 0 auto;
   font-size: 9vw;
   font-weight: bolder;
-  font-family: "Modak", cursive;
+  font-family: "Modak", monospace;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
     5px 5px 0px #d6cfe1, -15px -10px 15px #b39ddb;
 
@@ -197,7 +197,7 @@ const Text = styled.h2`
   margin: 0 auto;
   font-size: 4vw;
   font-weight: bolder;
-  font-family: "Modak", cursive;
+  font-family: "Modak", monospace;
   text-align: center;
   text-shadow: -2px -2px 0px #3b2563, 2px 2px 0px #4a3969;
   width: 70%;
