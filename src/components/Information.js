@@ -161,6 +161,19 @@ const movement = (a, b, c, d, e) => keyframes`
 }
 `;
 
+const scale = keyframes`
+0% {
+  transform: scale(1); 
+  
+  }
+50% { 
+  transform: scale(0.9);
+  }
+100% { 
+  transform: scale(1);
+  }
+`;
+
 const Wrapper = styled.section`
   padding: 30px;
   width: 100vw;
@@ -185,7 +198,15 @@ const Wrapper = styled.section`
     url(${backgroundPattern}), url(${backgroundImg});
   background-repeat: repeat;
   background-position: center;
-  box-shadow: inset 0px -30px 60px 60px #000000;
+  box-shadow: inset 0px -100px 200px 0px #000000,
+    inset 0px 100px 200px 0px #000000, inset -100px 0px 200px 0px #000000,
+    inset 100px 0px 200px 0px #000000;
+
+  @media (max-width: 668px) {
+    box-shadow: inset 0px -50px 100px 0px #000000,
+      inset 0px 50px 100px 0px #000000, inset -50px 0px 100px 0px #000000,
+      inset 50px 0px 100px 0px #000000;
+  }
 `;
 
 const Title = styled.h1`
@@ -228,7 +249,8 @@ const ImgContainer = styled.img`
 `;
 
 const Img = styled.img`
-  width: 80px;
+  width: 100px;
+  transform: rotate(180deg);
 `;
 
 const floating = keyframes`
@@ -249,14 +271,13 @@ const floating = keyframes`
 const A = styled.a`
   position: absolute;
   bottom: 0;
-  transform: rotate(180deg);
+
   background: none;
   border: none;
   cursor: pointer;
-
   animation: ${floating} 2s ease-in-out infinite;
 
-  &active {
-    transform: scale(1.1);
+  &:hover {
+    animation: ${scale} 1s linear infinite, ${floating} 2s ease-in-out infinite;
   }
 `;

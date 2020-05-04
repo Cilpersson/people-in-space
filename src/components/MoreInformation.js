@@ -28,15 +28,33 @@ export const MoreInformation = () => {
           <WrapperRow>
             <Img src={astronaut.biophoto} alt={astronaut.name} />
             <Wrapper>
-              <Text>{`Name: ${astronaut.name}`} </Text>
-              <Text>{`Title: ${astronaut.title}`} </Text>
-              <Text>
-                {`Location: ${
-                  astronaut.location === "International Space Station"
-                    ? "ISS"
-                    : astronaut.location
-                }`}{" "}
-              </Text>
+              <P>
+                <Text>Name:</Text>{" "}
+                {`
+                  ${astronaut.name}
+                `}
+              </P>
+              <P>
+                <Text>Title:</Text>{" "}
+                {`
+                  ${astronaut.title}
+                `}
+              </P>
+              <P>
+                <Text>Location:</Text>{" "}
+                {`
+                  ${
+                    astronaut.location === "International Space Station"
+                      ? "ISS"
+                      : astronaut.location
+                  }
+                `}
+              </P>
+
+              <P>
+                <Text>About:</Text>
+                {` ${astronaut.bio}`}
+              </P>
             </Wrapper>
           </WrapperRow>
         ))}
@@ -68,13 +86,23 @@ const Main = styled.section`
   min-height: 100vh;
   width: 100vw;
 
-  box-shadow: inset 0px 30px 60px 60px #000000;
+  box-shadow: inset 0px -100px 200px 0px #000000,
+    inset 0px 100px 200px 0px #000000, inset -100px 0px 200px 0px #000000,
+    inset 100px 0px 200px 0px #000000;
+
+  min-height: 100vh;
+
+  @media (max-width: 668px) {
+    box-shadow: inset 0px -50px 100px 0px #000000,
+      inset 0px 50px 100px 0px #000000, inset -50px 0px 100px 0px #000000,
+      inset 50px 0px 100px 0px #000000;
+  }
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 80%;
 `;
 
 const WrapperRow = styled.div`
@@ -83,16 +111,17 @@ const WrapperRow = styled.div`
   margin: 20px;
 `;
 
-const Text = styled.h2`
+const Text = styled.span`
   position: relative;
+  display: inline-block;
   z-index: 25;
   color: #e0d6f0;
-  margin: 0 0 10px 0;
   font-size: 2vw;
   font-weight: bolder;
   font-family: "Righteous", cursive;
   letter-spacing: 5px;
   text-shadow: -2px -2px 0px #3b2563, 2px 2px 0px #4a3969;
+  text-decoration: underline;
 
   @media (max-width: 668px) {
     font-size: 18px;
@@ -104,4 +133,18 @@ const Img = styled.img`
   height: 150px;
   border-radius: 10px;
   margin-right: 15px;
+`;
+
+const P = styled.span`
+  display: inline-block;
+  text-shadow: none;
+  font-size: 1.75vw;
+
+  position: relative;
+  display: inline-block;
+  z-index: 25;
+  color: #e0d6f0;
+  font-weight: bolder;
+  font-family: "Righteous", cursive;
+  letter-spacing: 2px;
 `;

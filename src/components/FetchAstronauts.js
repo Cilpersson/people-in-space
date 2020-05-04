@@ -83,7 +83,15 @@ const Main = styled.section`
   background-repeat: repeat;
   background-position: center;
 
-  box-shadow: inset 0px -30px 60px 60px #000000;
+  box-shadow: inset 0px -100px 200px 0px #000000,
+    inset 0px 100px 200px 0px #000000, inset -100px 0px 200px 0px #000000,
+    inset 100px 0px 200px 0px #000000;
 
   min-height: 100vh;
+
+  @media (max-width: 668px) {
+    box-shadow: inset 0px -50px 100px 0px #000000,
+      inset 0px 50px 100px 0px #000000, inset -50px 0px 100px 0px #000000,
+      inset 50px 0px 100px 0px #000000;
+  }
 `;
