@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import backgroundPattern from "../images/concrete.png";
+import { Footer } from "./Footer";
 
 export const MoreInformation = () => {
   const allAstronauts = useSelector((store) => store.astronauts.all.people);
@@ -34,20 +34,20 @@ export const MoreInformation = () => {
             <Img src={astronaut.biophoto} alt={astronaut.name} />
             <Wrapper>
               <P>
-                <Text>Name:</Text>{" "}
-                {`
+                <Text>Name:</Text>
+                {`${" "}
                   ${astronaut.name}
                 `}
               </P>
               <P>
-                <Text>Title:</Text>{" "}
-                {`
+                <Text>Title:</Text>
+                {`${" "}
                   ${astronaut.title}
                 `}
               </P>
               <P>
-                <Text>Location:</Text>{" "}
-                {`
+                <Text>Location:</Text>
+                {`${" "}
                   ${
                     astronaut.location === "International Space Station"
                       ? "ISS"
@@ -57,10 +57,10 @@ export const MoreInformation = () => {
               </P>
               <P>
                 <Text>About:</Text>
-                {` ${astronaut.bio}`}
+                {`${" "}${astronaut.bio}`}
               </P>
               <P>
-                <Text>{astronaut.twitter !== "" ? "Twitter: " : ""}</Text>
+                <Text>{astronaut.twitter !== "" ? "Twitter:" : ""}</Text>{" "}
                 {astronaut.twitter && (
                   <A href={astronaut.twitter}>
                     Check out {astronaut.name}'s twitter
@@ -71,29 +71,18 @@ export const MoreInformation = () => {
           </WrapperRow>
         ))}
       </Wrapper>
+      <Footer />
     </Main>
   );
 };
 
 const Main = styled.section`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  background-color: #25074c;
-  background-image: radial-gradient(
-      #00000099,
-      #00000099,
-      #00000030,
-      #00000099,
-      #00000099,
-      #00000030,
-      #00000099,
-      #00000099
-    ),
-    url(${backgroundPattern});
-  background-repeat: repeat;
-  background-position: center;
+  background-color: #000;
 
   min-height: 100vh;
   width: 100vw;
@@ -150,7 +139,7 @@ const Title = styled.h1`
   display: inline-block;
   text-align: center;
   z-index: 25;
-  color: #e0d6f0;
+  color: #fff;
   font-size: 2.3vw;
   font-family: "Righteous", cursive;
   letter-spacing: 5px;
@@ -165,6 +154,7 @@ const Img = styled.img`
   height: 150px;
   border-radius: 10px;
   margin-right: 15px;
+  box-shadow: -3px -3px 0px #a69cb9, -6px -6px 0px #3b2563;
 `;
 
 const P = styled.span`
@@ -175,10 +165,10 @@ const P = styled.span`
   position: relative;
   display: inline-block;
   z-index: 25;
-  color: #e0d6f0;
-  font-weight: bolder;
+  color: #fff;
   font-family: "Righteous", cursive;
   letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
 
   @media (max-width: 668px) {
     font-size: 14px;
@@ -193,10 +183,11 @@ font-size: 1.75vw;
 position: relative;
 display: inline-block;
 z-index: 25;
-color: #e0d6f0;
+color: #fff;
 font-weight: bolder;
 font-family: "Righteous", cursive;
 letter-spacing: 2px;
+font-family: "Montserrat", sans-serif;
 
 @media (max-width: 668px) {
   font-size: 14px;

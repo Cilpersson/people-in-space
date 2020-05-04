@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { onStart } from "../reducers/astronauts";
 import { Information } from "./Information";
-import { Footer } from "./Footer";
 import { MoreInformation } from "./MoreInformation";
 import { LoadingSpinner } from "./LoadingSpinner";
 import styled, { keyframes } from "styled-components";
@@ -27,7 +26,6 @@ export const FetchAstronauts = () => {
       {!isLoading && clicked && <Information />}
       {!isLoading && clicked && <MoreInformation />}
       {isLoading && <LoadingSpinner />}
-      {!isLoading && clicked && <Footer />}
     </Main>
   );
 };
