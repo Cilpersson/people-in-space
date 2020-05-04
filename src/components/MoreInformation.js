@@ -24,6 +24,11 @@ export const MoreInformation = () => {
   return (
     <Main id="more-information">
       <Wrapper>
+        <Title>
+          {textStyling(allAstronauts)}{" "}
+          {allAstronauts.length === 1 ? "is" : "are"} currently in space, here's
+          some facts about them.
+        </Title>
         {allAstronauts.map((astronaut) => (
           <WrapperRow>
             <Img src={astronaut.biophoto} alt={astronaut.name} />
@@ -50,10 +55,17 @@ export const MoreInformation = () => {
                   }
                 `}
               </P>
-
               <P>
                 <Text>About:</Text>
                 {` ${astronaut.bio}`}
+              </P>
+              <P>
+                <Text>{astronaut.twitter !== "" ? "Twitter: " : ""}</Text>
+                {astronaut.twitter && (
+                  <A href={astronaut.twitter}>
+                    Check out {astronaut.name}'s twitter
+                  </A>
+                )}
               </P>
             </Wrapper>
           </WrapperRow>
@@ -123,8 +135,25 @@ const Text = styled.span`
   font-weight: bolder;
   font-family: "Righteous", cursive;
   letter-spacing: 5px;
-  text-shadow: -2px -2px 0px #3b2563, 2px 2px 0px #4a3969;
+  text-shadow: -1px -1px 0px #3b2563, 1px 1px 0px #4a3969;
   text-decoration: underline;
+
+  @media (max-width: 668px) {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-shadow: none;
+  }
+`;
+
+const Title = styled.h1`
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  z-index: 25;
+  color: #e0d6f0;
+  font-size: 2.3vw;
+  font-family: "Righteous", cursive;
+  letter-spacing: 5px;
 
   @media (max-width: 668px) {
     font-size: 18px;
@@ -156,3 +185,19 @@ const P = styled.span`
     letter-spacing: 2px;
   }
 `;
+
+const A = styled.a` display: inline-block;
+text-shadow: none;
+font-size: 1.75vw;
+
+position: relative;
+display: inline-block;
+z-index: 25;
+color: #e0d6f0;
+font-weight: bolder;
+font-family: "Righteous", cursive;
+letter-spacing: 2px;
+
+@media (max-width: 668px) {
+  font-size: 14px;
+  letter-spacing: 2px;`;

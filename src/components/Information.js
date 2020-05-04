@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { useSelector } from "react-redux";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 import backgroundPattern from "../images/concrete.png";
 import backgroundImg from "../images/background/pattern.svg";
 import downbutton from "../images/030-spaceship.svg";
@@ -52,30 +52,11 @@ export const Information = () => {
   return (
     <>
       <Wrapper>
-        <Title>{titleText(allAstronauts)}</Title>
-
-        {allAstronauts.map((astronaut, index) => (
-          <>
-            <ImgContainer
-              width="130px"
-              zIndex="20"
-              opacity="1"
-              src={astronautImg}
-              display="block"
-              alt="Cartoon astronaut"
-              mobileWidth="90px"
-              key={Date.now()}
-              positionTop={getRandomInt(10, 80, "%")}
-              positionLeft={getRandomInt(10, 80, "%")}
-              y={getRandomDeg(0, 10)}
-              a={getRandomInt(10, 90, "%")}
-              b={getRandomInt(10, 90, "%")}
-              c={getRandomInt(10, 90, "%")}
-              d={getRandomInt(10, 90, "%")}
-              e={getRandomInt(10, 90, "%")}
-            />
-          </>
-        ))}
+        <Container>
+          <Title width="fit-content" height="fit-content">
+            {titleText(allAstronauts)}
+          </Title>
+        </Container>
         {images.map((img) => (
           <ImgContainer
             width="45px"
@@ -115,13 +96,36 @@ export const Information = () => {
             e={getRandomInt(10, 90, "%")}
           />
         ))}
-
-        <A>
-          <Link to="more-information" smooth={true}>
-            <Img src={downbutton} alt="rocket" />
-          </Link>
-        </A>
+        <Container width="100%" height="100%">
+          {allAstronauts.map((astronaut, index) => (
+            <>
+              <ImgContainer
+                width="130px"
+                zIndex="20"
+                opacity="1"
+                src={astronautImg}
+                display="block"
+                alt="Cartoon astronaut"
+                mobileWidth="90px"
+                key={Date.now()}
+                positionTop={getRandomInt(10, 80, "%")}
+                positionLeft={getRandomInt(10, 80, "%")}
+                y={getRandomDeg(0, 10)}
+                a={getRandomInt(10, 90, "%")}
+                b={getRandomInt(10, 90, "%")}
+                c={getRandomInt(10, 90, "%")}
+                d={getRandomInt(10, 90, "%")}
+                e={getRandomInt(10, 90, "%")}
+              />
+            </>
+          ))}
+        </Container>
       </Wrapper>
+      <A zIndex="30">
+        <Link to="more-information" smooth={true}>
+          <Img src={downbutton} alt="rocket" />
+        </Link>
+      </A>
     </>
   );
 };
@@ -210,20 +214,26 @@ const Wrapper = styled.section`
   }
 `;
 
+const Container = styled.div`
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
+`;
+
 const Title = styled.h1`
   position: relative;
   z-index: 20;
   color: #ffffff95;
   text-align: center;
   margin: 0 auto;
-  font-size: 9vw;
+  font-size: 6vw;
   font-weight: bolder;
   font-family: "Righteous", cursive;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
     5px 5px 0px #d6cfe1;
 
-  @media (min-width: 668px) {
-    font-size: 6vw;
+  @media (max-width: 668px) {
+    text-shadow: -1px -1px 0px #b39ddb, -2px -2px 0px #4a3969,
+      2px 2px 0px #4a3969, 3px 3px 0px #d6cfe1;
   }
 `;
 
@@ -274,6 +284,7 @@ const floating = keyframes`
 
 const A = styled.a`
   position: absolute;
+  z-index: ${(props) => props.zIndex};
   bottom: 0;
 
   background: none;

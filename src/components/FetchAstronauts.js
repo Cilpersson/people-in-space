@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { onStart } from "../reducers/astronauts";
 import { Information } from "./Information";
+import { Footer } from "./Footer";
 import { MoreInformation } from "./MoreInformation";
 import { LoadingSpinner } from "./LoadingSpinner";
 import styled, { keyframes } from "styled-components";
@@ -26,6 +27,7 @@ export const FetchAstronauts = () => {
       {!isLoading && clicked && <Information />}
       {!isLoading && clicked && <MoreInformation />}
       {isLoading && <LoadingSpinner />}
+      {!isLoading && clicked && <Footer />}
     </Main>
   );
 };
@@ -60,6 +62,11 @@ const Button = styled.button`
   animation: ${breathing} 2s ease-in-out infinite;
   cursor: pointer;
   font-family: "Righteous", cursive;
+
+  @media (max-width: 668px) {
+    text-shadow: -1px -1px 0px #b39ddb, -2px -2px 0px #4a3969,
+      2px 2px 0px #4a3969, 3px 3px 0px #d6cfe1;
+  }
 `;
 
 const Main = styled.section`
