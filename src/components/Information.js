@@ -84,6 +84,7 @@ export const Information = () => {
             src={img}
             display="block"
             alt="Space cartoon"
+            mobileWidth="30px"
             key={getRandomInt(3, 1000000, "!")}
             positionTop={getRandomInt(10, 80, "%")}
             positionLeft={getRandomInt(10, 80, "%")}
