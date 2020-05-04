@@ -31,7 +31,14 @@ export const MoreInformation = () => {
         </Title>
         {allAstronauts.map((astronaut) => (
           <WrapperRow>
-            <Img src={astronaut.biophoto} alt={astronaut.name} />
+            <Wrapper>
+              <Img
+                margin="10px 15px 10px 0"
+                width="100px"
+                src={astronaut.biophoto}
+                alt={astronaut.name}
+              />
+            </Wrapper>
             <Wrapper>
               <P>
                 <Text>Name:</Text>
@@ -46,7 +53,16 @@ export const MoreInformation = () => {
                 `}
               </P>
               <P>
-                <Text>Location:</Text>
+                <Text>Origin:</Text>
+                <Img
+                  margin="0 0 -5px 5px"
+                  width="50px"
+                  src={astronaut.countryflag}
+                  alt={`${astronaut.country}'s flag`}
+                />
+              </P>
+              <P>
+                <Text>Current location:</Text>
                 {`${" "}
                   ${
                     astronaut.location === "International Space Station"
@@ -103,9 +119,8 @@ const Main = styled.section`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
   @media (max-width: 668px) {
-    width: 100%;
+    width: fit-content;
   }
 `;
 
@@ -121,7 +136,6 @@ const Text = styled.span`
   z-index: 25;
   color: #e0d6f0;
   font-size: 2vw;
-  font-weight: bolder;
   font-family: "Righteous", cursive;
   letter-spacing: 5px;
   text-shadow: -1px -1px 0px #3b2563, 1px 1px 0px #4a3969;
@@ -139,7 +153,7 @@ const Title = styled.h1`
   display: inline-block;
   text-align: center;
   z-index: 25;
-  color: #fff;
+  color: #e0d6f0;
   font-size: 1.9vw;
   letter-spacing: 5px;
   font-family: Montserrat, sans-serif;
@@ -154,10 +168,9 @@ const Title = styled.h1`
 `;
 
 const Img = styled.img`
-  height: 150px;
-  border-radius: 10px;
-  margin-right: 15px;
-  box-shadow: -3px -3px 0px #a69cb9, -6px -6px 0px #3b2563;
+  width: ${(props) => props.width};
+  border-radius: 5px;
+  margin: ${(props) => props.margin};
 `;
 
 const P = styled.span`
@@ -168,7 +181,7 @@ const P = styled.span`
   position: relative;
   display: inline-block;
   z-index: 25;
-  color: #fff;
+  color: #e0d6f0;
   letter-spacing: 2px;
   font-family: "Montserrat", sans-serif;
 
@@ -185,7 +198,7 @@ font-size: 1.75vw;
 position: relative;
 display: inline-block;
 z-index: 25;
-color: #fff;
+    color: #e0d6f0;
 font-family: "Righteous", cursive;
 letter-spacing: 2px;
 font-family: "Montserrat", sans-serif;
@@ -193,3 +206,6 @@ font-family: "Montserrat", sans-serif;
 @media (max-width: 668px) {
   font-size: 14px;
   letter-spacing: 2px;`;
+/*
+box-shadow: -3px -3px 0px #a69cb9, -6px -6px 0px #3b2563;
+*/
