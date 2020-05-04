@@ -103,6 +103,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
+  @media (max-width: 668px) {
+    width: 100%;
+  }
 `;
 
 const WrapperRow = styled.div`
