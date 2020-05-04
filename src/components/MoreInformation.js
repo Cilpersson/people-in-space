@@ -26,8 +26,8 @@ export const MoreInformation = () => {
       <Wrapper>
         <Title>
           {textStyling(allAstronauts)}{" "}
-          {allAstronauts.length === 1 ? "is" : "are"} currently in space, here's
-          some facts about them.
+          {allAstronauts.length === 1 ? "is" : "are"} currently in space, here
+          are some facts about them.
         </Title>
         {allAstronauts.map((astronaut) => (
           <WrapperRow>
@@ -140,9 +140,12 @@ const Title = styled.h1`
   text-align: center;
   z-index: 25;
   color: #fff;
-  font-size: 2.3vw;
-  font-family: "Righteous", cursive;
+  font-size: 1.9vw;
   letter-spacing: 5px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  text-align: justify;
+  padding: 0 20px;
 
   @media (max-width: 668px) {
     font-size: 18px;
@@ -166,7 +169,6 @@ const P = styled.span`
   display: inline-block;
   z-index: 25;
   color: #fff;
-  font-family: "Righteous", cursive;
   letter-spacing: 2px;
   font-family: "Montserrat", sans-serif;
 
@@ -184,7 +186,6 @@ position: relative;
 display: inline-block;
 z-index: 25;
 color: #fff;
-font-weight: bolder;
 font-family: "Righteous", cursive;
 letter-spacing: 2px;
 font-family: "Montserrat", sans-serif;
