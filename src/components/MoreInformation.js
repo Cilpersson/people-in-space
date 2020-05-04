@@ -93,6 +93,11 @@ const Text = styled.h2`
   font-family: "Righteous", cursive;
   letter-spacing: 5px;
   text-shadow: -2px -2px 0px #3b2563, 2px 2px 0px #4a3969;
+
+  @media (max-width: 668px) {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
 `;
 
 const Img = styled.img`

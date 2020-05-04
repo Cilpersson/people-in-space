@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { useSelector } from "react-redux";
+import { Link, animateScroll as scroll } from "react-scroll";
 import backgroundPattern from "../images/concrete.png";
 import backgroundImg from "../images/background/pattern.svg";
 import downbutton from "../images/030-spaceship.svg";
@@ -63,7 +64,7 @@ export const Information = () => {
               display="block"
               alt="Cartoon astronaut"
               mobileWidth="90px"
-              key={getRandomInt(3, 1000000, "!")}
+              key={Date.now()}
               positionTop={getRandomInt(10, 80, "%")}
               positionLeft={getRandomInt(10, 80, "%")}
               y={getRandomDeg(0, 10)}
@@ -113,8 +114,11 @@ export const Information = () => {
             e={getRandomInt(10, 90, "%")}
           />
         ))}
-        <A href="#more-information">
-          <Img src={downbutton} alt="rocket" />
+
+        <A>
+          <Link to="more-information" smooth={true}>
+            <Img src={downbutton} alt="rocket" />
+          </Link>
         </A>
       </Wrapper>
     </>
@@ -163,6 +167,7 @@ const Wrapper = styled.section`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   overflow: hidden;
   box-sizing: border-box;
 
@@ -242,11 +247,16 @@ const floating = keyframes`
 `;
 
 const A = styled.a`
-  margin: 0 auto;
   position: absolute;
   bottom: 0;
-  left: 50%;
   transform: rotate(180deg);
+  background: none;
+  border: none;
+  cursor: pointer;
 
   animation: ${floating} 2s ease-in-out infinite;
+
+  &active {
+    transform: scale(1.1);
+  }
 `;
