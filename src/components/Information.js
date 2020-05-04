@@ -249,11 +249,11 @@ const ImgContainer = styled.img`
 `;
 
 const Img = styled.img`
-  width: 100px;
+  width: 90px;
   transform: rotate(180deg);
 
   @media (max-width: 668px) {
-    width: 60;
+    width: 50px;
   }
 `;
 
