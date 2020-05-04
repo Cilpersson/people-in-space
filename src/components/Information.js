@@ -251,6 +251,10 @@ const ImgContainer = styled.img`
 const Img = styled.img`
   width: 100px;
   transform: rotate(180deg);
+
+  @media (max-width: 668px) {
+    width: 60;
+  }
 `;
 
 const floating = keyframes`
