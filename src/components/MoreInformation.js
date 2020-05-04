@@ -20,7 +20,6 @@ export const MoreInformation = () => {
     return styledText;
   };
 
-  console.log(allAstronauts);
   return (
     <Main id="more-information">
       <Wrapper>
@@ -101,7 +100,6 @@ const Main = styled.section`
   background-color: #000;
 
   min-height: 100vh;
-  width: 100vw;
 
   box-shadow: inset 0px -100px 200px 0px #000000,
     inset 0px 100px 200px 0px #000000, inset -100px 0px 200px 0px #000000,
@@ -119,6 +117,7 @@ const Main = styled.section`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+
   @media (max-width: 668px) {
     width: fit-content;
   }
@@ -127,7 +126,13 @@ const Wrapper = styled.div`
 const WrapperRow = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 20px;
+  margin: 20px auto;
+  width: 60%;
+
+  @media (max-width: 668px) {
+    width: fit-content;
+    margin: 20px;
+  }
 `;
 
 const Text = styled.span`
@@ -135,7 +140,7 @@ const Text = styled.span`
   display: inline-block;
   z-index: 25;
   color: #e0d6f0;
-  font-size: 2vw;
+  font-size: 25px;
   font-family: "Righteous", cursive;
   letter-spacing: 5px;
   text-shadow: -1px -1px 0px #3b2563, 1px 1px 0px #4a3969;
@@ -154,16 +159,21 @@ const Title = styled.h1`
   text-align: center;
   z-index: 25;
   color: #e0d6f0;
-  font-size: 1.9vw;
+  font-size: 30px;
   letter-spacing: 5px;
   font-family: Montserrat, sans-serif;
   font-weight: 700;
   text-align: justify;
-  padding: 0 20px;
+
+  margin: 40px auto 0;
+  width: 60%;
 
   @media (max-width: 668px) {
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 2px;
+    width: fit-content;
+    padding: 20px;
+    margin: 0 auto;
   }
 `;
 
@@ -176,7 +186,7 @@ const Img = styled.img`
 const P = styled.span`
   display: inline-block;
   text-shadow: none;
-  font-size: 1.75vw;
+  font-size: 25px;
 
   position: relative;
   display: inline-block;
@@ -193,7 +203,7 @@ const P = styled.span`
 
 const A = styled.a` display: inline-block;
 text-shadow: none;
-font-size: 1.75vw;
+font-size: 25px;
 
 position: relative;
 display: inline-block;
