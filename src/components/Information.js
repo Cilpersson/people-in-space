@@ -220,7 +220,6 @@ const Title = styled.h1`
   font-family: "Righteous", cursive;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
     5px 5px 0px #d6cfe1;
-  padding-top: 40px;
 
   @media (min-width: 668px) {
     font-size: 6vw;

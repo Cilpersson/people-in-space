@@ -150,4 +150,9 @@ const P = styled.span`
   font-weight: bolder;
   font-family: "Righteous", cursive;
   letter-spacing: 2px;
+
+  @media (max-width: 668px) {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
 `;
