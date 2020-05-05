@@ -120,11 +120,13 @@ export const Information = () => {
           ))}
         </Container>
       </Wrapper>
-      <A zIndex="30">
-        <Link to="more-information" smooth={true}>
-          <Img src={downbutton} alt="rocket" />
-        </Link>
-      </A>
+      {allAstronauts.length !== 0 && (
+        <A zIndex="30">
+          <Link to="more-information" smooth={true}>
+            <Img src={downbutton} alt="rocket" />
+          </Link>
+        </A>
+      )}
     </>
   );
 };

@@ -21,77 +21,87 @@ export const MoreInformation = () => {
     return styledText;
   };
 
-  return (
-    <Main id="more-information">
-      <Wrapper>
-        <Title>
-          {textStyling(allAstronauts)}{" "}
-          {allAstronauts.length === 1 ? "is" : "are"} currently in space, here
-          are some facts about them.
-        </Title>
-        {allAstronauts.map((astronaut) => (
-          <WrapperRow key={uuidv4()}>
-            <Wrapper>
-              <Img
-                border="2px solid #e0d6f0"
-                margin="10px 15px 10px 0"
-                width="100px"
-                src={astronaut.biophoto}
-                alt={astronaut.name}
-              />
-            </Wrapper>
-            <Wrapper>
-              <P>
-                <Text>Name:</Text>
-                {`${" "}
+  const httpsNotHttp = (string) => {
+    const regex = /http/;
+    string = string.replace(regex, "https");
+
+    return string;
+  };
+  if (allAstronauts.length !== 0) {
+    return (
+      <Main id="more-information">
+        <Wrapper>
+          <Title>
+            {textStyling(allAstronauts)}{" "}
+            {allAstronauts.length === 1 ? "is" : "are"} currently in space, here
+            are some facts about them.
+          </Title>
+          {allAstronauts.map((astronaut) => (
+            <WrapperRow key={uuidv4()}>
+              <Wrapper>
+                <Img
+                  border="2px solid #e0d6f0"
+                  margin="10px 15px 10px 0"
+                  width="100px"
+                  src={httpsNotHttp(astronaut.biophoto)}
+                  alt={astronaut.name}
+                />
+              </Wrapper>
+              <Wrapper>
+                <P>
+                  <Text>Name:</Text>
+                  {`${" "}
                   ${astronaut.name}
                 `}
-              </P>
-              <P>
-                <Text>Title:</Text>
-                {`${" "}
+                </P>
+                <P>
+                  <Text>Title:</Text>
+                  {`${" "}
                   ${astronaut.title}
                 `}
-              </P>
-              <P>
-                <Text>Origin:</Text>
-                <Img
-                  border="1px solid #e0d6f0"
-                  margin="0 0 -5px 5px"
-                  width="50px"
-                  src={astronaut.countryflag}
-                  alt={`${astronaut.country}'s flag`}
-                />
-              </P>
-              <P>
-                <Text>Current location:</Text>
-                {`${" "}
+                </P>
+                <P>
+                  <Text>Origin:</Text>
+                  <Img
+                    border="1px solid #e0d6f0"
+                    margin="0 0 -5px 5px"
+                    width="50px"
+                    src={httpsNotHttp(astronaut.countryflag)}
+                    alt={`${astronaut.country}'s flag`}
+                  />
+                </P>
+                <P>
+                  <Text>Current location:</Text>
+                  {`${" "}
                   ${
                     astronaut.location === "International Space Station"
                       ? "ISS"
                       : astronaut.location
                   }
                 `}
-              </P>
-              <P>
-                <Text>About:</Text>
-                {`${" "}${astronaut.bio}`}
-              </P>
-              <P>
-                <Text>{astronaut.twitter !== "" ? "Twitter:" : ""}</Text>{" "}
-                {astronaut.twitter && (
-                  <A href={astronaut.twitter}>
-                    Check out {astronaut.name}'s twitter
-                  </A>
-                )}
-              </P>
-            </Wrapper>
-          </WrapperRow>
-        ))}
-      </Wrapper>
-      <Footer />
-    </Main>
-  );
+                </P>
+                <P>
+                  <Text>About:</Text>
+                  {`${" "}${astronaut.bio}`}
+                </P>
+                <P>
+                  <Text>{astronaut.twitter !== "" ? "Twitter:" : ""}</Text>{" "}
+                  {astronaut.twitter && (
+                    <A href={astronaut.twitter}>
+                      Check out {astronaut.name}'s twitter
+                    </A>
+                  )}
+                </P>
+              </Wrapper>
+            </WrapperRow>
+          ))}
+        </Wrapper>
+        <Footer />
+      </Main>
+    );
+  } else {
+    return <div />;
+  }
 };
 
 const Main = styled.section`
