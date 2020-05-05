@@ -2,6 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { useSelector } from "react-redux";
 import { Link } from "react-scroll";
+import { v4 as uuidv4 } from "uuid";
 import backgroundPattern from "../images/concrete.png";
 import backgroundImg from "../images/background/pattern.svg";
 import downbutton from "../images/030-spaceship.svg";
@@ -66,7 +67,7 @@ export const Information = () => {
             display="block"
             alt="Space cartoon"
             mobileWidth="30px"
-            key={getRandomInt(3, 1000000, "!")}
+            key={uuidv4()}
             positionTop={getRandomInt(10, 80, "%")}
             positionLeft={getRandomInt(10, 80, "%")}
             y={getRandomDeg(0, 10)}
@@ -85,7 +86,7 @@ export const Information = () => {
             src={img}
             display="none"
             alt="Space cartoon"
-            key={getRandomInt(3, 1000000, "")}
+            key={uuidv4()}
             positionTop={getRandomInt(10, 80, "%")}
             positionLeft={getRandomInt(10, 80, "%")}
             y={getRandomDeg(0, 10)}
@@ -98,26 +99,24 @@ export const Information = () => {
         ))}
         <Container width="100%" height="100%">
           {allAstronauts.map((astronaut, index) => (
-            <>
-              <ImgContainer
-                width="130px"
-                zIndex="20"
-                opacity="1"
-                src={astronautImg}
-                display="block"
-                alt="Cartoon astronaut"
-                mobileWidth="90px"
-                key={Date.now()}
-                positionTop={getRandomInt(10, 80, "%")}
-                positionLeft={getRandomInt(10, 80, "%")}
-                y={getRandomDeg(0, 10)}
-                a={getRandomInt(10, 90, "%")}
-                b={getRandomInt(10, 90, "%")}
-                c={getRandomInt(10, 90, "%")}
-                d={getRandomInt(10, 90, "%")}
-                e={getRandomInt(10, 90, "%")}
-              />
-            </>
+            <ImgContainer
+              width="130px"
+              zIndex="20"
+              opacity="1"
+              src={astronautImg}
+              display="block"
+              alt="Cartoon astronaut"
+              mobileWidth="90px"
+              key={uuidv4()}
+              positionTop={getRandomInt(10, 80, "%")}
+              positionLeft={getRandomInt(10, 80, "%")}
+              y={getRandomDeg(0, 10)}
+              a={getRandomInt(10, 90, "%")}
+              b={getRandomInt(10, 90, "%")}
+              c={getRandomInt(10, 90, "%")}
+              d={getRandomInt(10, 90, "%")}
+              e={getRandomInt(10, 90, "%")}
+            />
           ))}
         </Container>
       </Wrapper>
@@ -242,7 +241,7 @@ const ImgContainer = styled.img`
   width: ${(props) => props.width};
   position: absolute;
   animation: ${(props) => rotating(props.y)} 45s linear infinite,
-    ${(props) => movement(props.a, props.b, props.c, props.d, props.e)} 355s
+    ${(props) => movement(props.a, props.b, props.c, props.d, props.e)} 555s
       linear infinite;
   top: ${(props) => props.positionTop};
   left: ${(props) => props.positionLeft};
@@ -282,7 +281,7 @@ const floating = keyframes`
 
 `;
 
-const A = styled.a`
+const A = styled.div`
   position: absolute;
   z-index: ${(props) => props.zIndex};
   bottom: 0;

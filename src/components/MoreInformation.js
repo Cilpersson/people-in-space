@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Footer } from "./Footer";
@@ -29,7 +30,7 @@ export const MoreInformation = () => {
           are some facts about them.
         </Title>
         {allAstronauts.map((astronaut) => (
-          <WrapperRow>
+          <WrapperRow key={uuidv4()}>
             <Wrapper>
               <Img
                 margin="10px 15px 10px 0"
@@ -133,6 +134,9 @@ const WrapperRow = styled.div`
     width: fit-content;
     margin: 20px;
   }
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
 `;
 
 const Text = styled.span`
@@ -169,11 +173,15 @@ const Title = styled.h1`
   width: 60%;
 
   @media (max-width: 668px) {
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 2px;
     width: fit-content;
     padding: 20px;
-    margin: 0 auto;
+    margin: 20px auto 0;
+  }
+
+  @media (max-width: 1024px) {
+    width: 80%;
   }
 `;
 
