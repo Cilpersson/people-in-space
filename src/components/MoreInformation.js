@@ -33,6 +33,7 @@ export const MoreInformation = () => {
           <WrapperRow key={uuidv4()}>
             <Wrapper>
               <Img
+                border="2px solid #e0d6f0"
                 margin="10px 15px 10px 0"
                 width="100px"
                 src={astronaut.biophoto}
@@ -55,6 +56,7 @@ export const MoreInformation = () => {
               <P>
                 <Text>Origin:</Text>
                 <Img
+                  border="1px solid #e0d6f0"
                   margin="0 0 -5px 5px"
                   width="50px"
                   src={astronaut.countryflag}
@@ -106,8 +108,6 @@ const Main = styled.section`
     inset 0px 100px 200px 0px #000000, inset -100px 0px 200px 0px #000000,
     inset 100px 0px 200px 0px #000000;
 
-  min-height: 100vh;
-
   @media (max-width: 668px) {
     box-shadow: inset 0px -50px 100px 0px #000000,
       inset 0px 50px 100px 0px #000000, inset -50px 0px 100px 0px #000000,
@@ -132,7 +132,13 @@ const WrapperRow = styled.div`
 
   @media (max-width: 668px) {
     width: fit-content;
-    margin: 20px;
+    margin: 20px auto;
+    flex-direction: column;
+    align-items: center;
+
+    border: 2px solid #e0d6f0;
+    border-radius: 2px;
+    padding: 0 10px 10px;
   }
   @media (max-width: 1024px) {
     width: 80%;
@@ -187,8 +193,12 @@ const Title = styled.h1`
 
 const Img = styled.img`
   width: ${(props) => props.width};
-  border-radius: 5px;
+  border-radius: 2px;
   margin: ${(props) => props.margin};
+
+  @media (max-width: 668px) {
+    border: ${(props) => props.border};
+  }
 `;
 
 const P = styled.span`
@@ -206,6 +216,7 @@ const P = styled.span`
   @media (max-width: 668px) {
     font-size: 14px;
     letter-spacing: 2px;
+    text-align: justify;
   }
 `;
 
