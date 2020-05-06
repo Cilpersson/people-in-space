@@ -16,7 +16,7 @@ export const astronauts = createSlice({
 export const onStart = () => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const proxyurl = " https://thingproxy.freeboard.io/fetch/";
     const url =
       "https://www.howmanypeopleareinspacerightnow.com/peopleinspace.json";
     fetch(proxyurl + url)
