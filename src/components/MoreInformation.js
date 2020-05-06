@@ -24,9 +24,9 @@ export const MoreInformation = () => {
   const httpsNotHttp = (string) => {
     const regex = /http/;
     string = string.replace(regex, "https");
-
     return string;
   };
+
   if (allAstronauts.length !== 0) {
     return (
       <Main id="more-information">

@@ -2,7 +2,6 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { useSelector } from "react-redux";
 import { Link } from "react-scroll";
-import { v4 as uuidv4 } from "uuid";
 import backgroundPattern from "../images/concrete.png";
 import backgroundImg from "../images/background/pattern.svg";
 import downbutton from "../images/030-spaceship.svg";
@@ -16,28 +15,11 @@ import img6 from "../images/020-orbit.svg";
 import img7 from "../images/022-planet.svg";
 import img8 from "../images/029-spaceship.svg";
 import img9 from "../images/031-star.svg";
+import { BackgroundIcons } from "./BackgroundIcons";
 
 export const Information = () => {
   const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
   const allAstronauts = useSelector((store) => store.astronauts.all.people);
-
-  const getRandomInt = (min, max, val) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    const random = `${Math.floor(Math.random() * (max - min + 1)) + min}${val}`;
-    return random;
-  };
-
-  const getRandomDeg = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    const random = Math.floor(Math.random() * (max - min + 1)) + min;
-    if (random % 2 === 0) {
-      return "360deg";
-    } else {
-      return "-360deg";
-    }
-  };
 
   const titleText = (allAstronauts) => {
     const nbrOfAstronauts = allAstronauts.length;
@@ -59,7 +41,7 @@ export const Information = () => {
           </Title>
         </Container>
         {images.map((img) => (
-          <ImgContainer
+          <BackgroundIcons
             width="45px"
             zIndex="5"
             opacity="0.7"
@@ -67,39 +49,21 @@ export const Information = () => {
             display="block"
             alt="Space cartoon"
             mobileWidth="30px"
-            key={uuidv4()}
-            positionTop={getRandomInt(10, 80, "%")}
-            positionLeft={getRandomInt(10, 80, "%")}
-            y={getRandomDeg(0, 10)}
-            a={getRandomInt(10, 90, "%")}
-            b={getRandomInt(10, 90, "%")}
-            c={getRandomInt(10, 90, "%")}
-            d={getRandomInt(10, 90, "%")}
-            e={getRandomInt(10, 90, "%")}
           />
         ))}
         {images.map((img) => (
-          <ImgContainer
+          <BackgroundIcons
             width="45px"
             zIndex="5"
             opacity="0.7"
             src={img}
             display="none"
             alt="Space cartoon"
-            key={uuidv4()}
-            positionTop={getRandomInt(10, 80, "%")}
-            positionLeft={getRandomInt(10, 80, "%")}
-            y={getRandomDeg(0, 10)}
-            a={getRandomInt(10, 90, "%")}
-            b={getRandomInt(10, 90, "%")}
-            c={getRandomInt(10, 90, "%")}
-            d={getRandomInt(10, 90, "%")}
-            e={getRandomInt(10, 90, "%")}
           />
         ))}
         <Container width="100%" height="100%">
           {allAstronauts.map((astronaut, index) => (
-            <ImgContainer
+            <BackgroundIcons
               width="130px"
               zIndex="20"
               opacity="1"
@@ -107,15 +71,6 @@ export const Information = () => {
               display="block"
               alt="Cartoon astronaut"
               mobileWidth="90px"
-              key={uuidv4()}
-              positionTop={getRandomInt(10, 80, "%")}
-              positionLeft={getRandomInt(10, 80, "%")}
-              y={getRandomDeg(0, 10)}
-              a={getRandomInt(10, 90, "%")}
-              b={getRandomInt(10, 90, "%")}
-              c={getRandomInt(10, 90, "%")}
-              d={getRandomInt(10, 90, "%")}
-              e={getRandomInt(10, 90, "%")}
             />
           ))}
         </Container>
@@ -130,42 +85,6 @@ export const Information = () => {
     </>
   );
 };
-
-const rotating = (y) => keyframes`
-from {
-  transform: rotate(0deg);
-}
-
-to {
-  transform: rotate(${y});
-}`;
-
-const movement = (a, b, c, d, e) => keyframes`
-0% {
-  left: ${a});
-  top: ${e});
-}
-20% {
-  left: ${b};
-  top: ${d};
-}
-40% {
-  left: ${d};
-   top: ${b};
-}
-60% {
-  left: ${e};
-  top: ${c};
-}
-80% {
-  left: ${c};
-  top: ${d};
-}
-100% {
-  left: ${a};
-  top: ${e};
-}
-`;
 
 const scale = keyframes`
 0% {
@@ -235,27 +154,6 @@ const Title = styled.h1`
   @media (max-width: 668px) {
     text-shadow: -1px -1px 0px #b39ddb, -2px -2px 0px #4a3969,
       2px 2px 0px #4a3969, 3px 3px 0px #d6cfe1;
-  }
-`;
-
-const ImgContainer = styled.img`
-  margin: 20px;
-  width: ${(props) => props.width};
-  position: absolute;
-  animation: ${(props) => rotating(props.y)} 45s linear infinite,
-    ${(props) => movement(props.a, props.b, props.c, props.d, props.e)} 555s
-      linear infinite;
-  top: ${(props) => props.positionTop};
-  left: ${(props) => props.positionLeft};
-  z-index: ${(props) => props.zIndex};
-  opacity: ${(props) => props.opacity};
-
-  @media (max-width: 1024px) {
-    display: ${(props) => props.display};
-  }
-
-  @media (max-width: 668px) {
-    width: ${(props) => props.mobileWidth};
   }
 `;
 
