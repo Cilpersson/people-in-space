@@ -43,7 +43,7 @@ export const MoreInformation = () => {
                   border="2px solid #e0d6f0"
                   margin="10px 15px 10px 0"
                   width="100px"
-                  src={astronaut.biophoto}
+                  src={httpsNotHttp(astronaut.biophoto)}
                   alt={astronaut.name}
                 />
               </Wrapper>
@@ -66,7 +66,7 @@ export const MoreInformation = () => {
                     border="1px solid #e0d6f0"
                     margin="0 0 -5px 5px"
                     width="50px"
-                    src={astronaut.countryflag}
+                    src={httpsNotHttp(astronaut.countryflag)}
                     alt={`${astronaut.country}'s flag`}
                   />
                 </P>

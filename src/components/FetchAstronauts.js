@@ -7,19 +7,8 @@ import { LoadingSpinner } from "./LoadingSpinner";
 import styled, { keyframes } from "styled-components";
 import backgroundImg from "../images/background/pattern.svg";
 import backgroundPattern from "../images/concrete.png";
-import img1 from "../images/003-Asteroid.svg";
-import img2 from "../images/005-astronomy.svg";
-import img3 from "../images/007-comet.svg";
-import img4 from "../images/009-earth.svg";
-import img5 from "../images/017-moon.svg";
-import img6 from "../images/020-orbit.svg";
-import img7 from "../images/022-planet.svg";
-import img8 from "../images/029-spaceship.svg";
-import img9 from "../images/031-star.svg";
-import { BackgroundIcons } from "./BackgroundIcons";
 
 export const FetchAstronauts = () => {
-  const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
   const [clicked, setClicked] = useState(false);
   const dispatch = useDispatch();
   const isLoading = useSelector((store) => store.ui.isLoading);

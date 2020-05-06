@@ -108,7 +108,6 @@ const Wrapper = styled.section`
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-
   background-color: #020646;
   background-image: radial-gradient(
       #00000099,
@@ -126,7 +125,6 @@ const Wrapper = styled.section`
   box-shadow: inset 0px -100px 200px 0px #000000,
     inset 0px 100px 200px 0px #000000, inset -100px 0px 200px 0px #000000,
     inset 100px 0px 200px 0px #000000;
-
   @media (max-width: 668px) {
     box-shadow: inset 0px -50px 100px 0px #000000,
       inset 0px 50px 100px 0px #000000, inset -50px 0px 100px 0px #000000,
@@ -150,7 +148,6 @@ const Title = styled.h1`
   font-family: "Righteous", cursive;
   text-shadow: -2px -2px 0px #b39ddb, -4px -4px 0px #4a3969, 4px 4px 0px #4a3969,
     5px 5px 0px #d6cfe1;
-
   @media (max-width: 668px) {
     text-shadow: -1px -1px 0px #b39ddb, -2px -2px 0px #4a3969,
       2px 2px 0px #4a3969, 3px 3px 0px #d6cfe1;
@@ -160,7 +157,6 @@ const Title = styled.h1`
 const Img = styled.img`
   width: 90px;
   transform: rotate(180deg);
-
   @media (max-width: 668px) {
     width: 50px;
   }
@@ -170,27 +166,22 @@ const floating = keyframes`
 0% {
   bottom: 0;
 }
-
 50% {
   bottom: 15px;
 }
-
 100% {
   bottom: 0;
 }
-
 `;
 
 const A = styled.div`
   position: absolute;
   z-index: ${(props) => props.zIndex};
   bottom: 0;
-
   background: none;
   border: none;
   cursor: pointer;
   animation: ${floating} 2s ease-in-out infinite;
-
   &:hover {
     animation: ${scale} 1s linear infinite, ${floating} 2s ease-in-out infinite;
   }

@@ -29,26 +29,24 @@ export const BackgroundIcons = ({
     }
   };
   return (
-    <Wrapper>
-      <ImgContainer
-        width={width}
-        zIndex={zIndex}
-        opacity={opacity}
-        src={src}
-        display={display}
-        alt={alt}
-        mobileWidth={mobileWidth}
-        key={uuidv4()}
-        positionTop={getRandomInt(10, 80, "%")}
-        positionLeft={getRandomInt(10, 80, "%")}
-        y={getRandomDeg(0, 10)}
-        a={getRandomInt(10, 90, "%")}
-        b={getRandomInt(10, 90, "%")}
-        c={getRandomInt(10, 90, "%")}
-        d={getRandomInt(10, 90, "%")}
-        e={getRandomInt(10, 90, "%")}
-      />
-    </Wrapper>
+    <ImgContainer
+      width={width}
+      zIndex={zIndex}
+      opacity={opacity}
+      src={src}
+      display={display}
+      alt={alt}
+      mobileWidth={mobileWidth}
+      key={uuidv4()}
+      positionTop={getRandomInt(10, 80, "%")}
+      positionLeft={getRandomInt(10, 80, "%")}
+      y={getRandomDeg(0, 10)}
+      a={getRandomInt(10, 90, "%")}
+      b={getRandomInt(10, 90, "%")}
+      c={getRandomInt(10, 90, "%")}
+      d={getRandomInt(10, 90, "%")}
+      e={getRandomInt(10, 90, "%")}
+    />
   );
 };
 
@@ -56,7 +54,6 @@ const rotating = (y) => keyframes`
 from {
   transform: rotate(0deg);
 }
-
 to {
   transform: rotate(${y});
 }`;
@@ -99,19 +96,10 @@ const ImgContainer = styled.img`
   left: ${(props) => props.positionLeft};
   z-index: ${(props) => props.zIndex};
   opacity: ${(props) => props.opacity};
-
   @media (max-width: 1024px) {
     display: ${(props) => props.display};
   }
-
   @media (max-width: 668px) {
     width: ${(props) => props.mobileWidth};
   }
-`;
-
-const Wrapper = styled.section`
-  min-width: 100px;
-  min-height: 100px;
-  max-width: 100%;
-  max-height: 100;
 `;
