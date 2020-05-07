@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { v4 as uuidv4 } from "uuid";
+
+/* Skapa metod som säger hur många astros du vill ha på sidan 
+testa vad som händer som 150-ish astros*/
 
 export const BackgroundIcons = ({
   width,
@@ -37,7 +39,6 @@ export const BackgroundIcons = ({
       display={display}
       alt={alt}
       mobileWidth={mobileWidth}
-      key={uuidv4()}
       positionTop={getRandomInt(10, 80, "%")}
       positionLeft={getRandomInt(10, 80, "%")}
       y={getRandomDeg(0, 10)}

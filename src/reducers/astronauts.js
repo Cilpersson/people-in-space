@@ -19,14 +19,12 @@ export const onStart = () => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url =
       "https://www.howmanypeopleareinspacerightnow.com/peopleinspace.json";
-    fetch(proxyurl + url, { mode: "cors" })
+    fetch(proxyurl + url)
       .then((data) => data.json())
       .then((json) => {
         dispatch(astronauts.actions.setAstronauts(json));
         dispatch(ui.actions.setLoading(false));
       })
-      .catch(() =>
-        console.log("Can’t access " + url + " response. Blocked by browser?")
-      );
+      .catch(() => console.log("Can’t access " + url + " response."));
   };
 };
